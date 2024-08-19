@@ -118,3 +118,5 @@ jobs:
     - name: Deploy docker container
       run: |
         sudo docker-compose --env-file .env -f docker-compose.prod.yml up -d
+
+        #
