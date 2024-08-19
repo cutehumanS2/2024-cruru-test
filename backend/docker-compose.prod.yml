@@ -5,7 +5,7 @@ services:
     container_name: app_container
     platform: linux/arm64
     restart: always
-    image: ${DOCKER_REPO_NAME}/cruru:prod-latest
+    image: ${DOCKER_REPO_NAME}/cruru:${DOCKER_IMAGE_TAG}
     ports:
       - ${SERVER_BINDING_PORT}
       - ${MONITORING_BINDING_PORT}
@@ -22,6 +22,13 @@ services:
       JWT_TOKEN_SECRET_KEY: ${JWT_TOKEN_SECRET_KEY}
       JWT_TOKEN_EXPIRE_CYCLE: ${JWT_TOKEN_EXPIRE_CYCLE}
       JWT_SIGN_ALGORITHM: ${JWT_SIGN_ALGORITHM}
+      COOKIE_ACCESS_TOKEN_KEY: ${COOKIE_ACCESS_TOKEN_KEY}
+      COOKIE_HTTP_ONLY: ${COOKIE_HTTP_ONLY}
+      COOKIE_SECURE: ${COOKIE_SECURE}
+      COOKIE_DOMAIN: ${COOKIE_DOMAIN}
+      COOKIE_PATH: ${COOKIE_PATH}
+      COOKIE_SAME_SITE: ${COOKIE_SAME_SITE}
+      COOKIE_MAX_AGE: ${COOKIE_MAX_AGE}
     networks:
       cruru_network:
         ipv4_address: ${APP_IP_ADDRESS}
